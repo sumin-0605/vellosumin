@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sneaker-gallery {width: 100vw; overflow-x: hidden;}
+
+.image-track {display: flex; flex-direction: column;}
+
+.image-item,
+.woman,
+.man {width: 100%;}
+
+/* 이미지 */
+.image-track img {width: 100%; height: auto; display: block; object-fit: contain;}
+
+
+@media screen and (max-width: 768px) {
+  .man {
+    display: none;
+  }
+}

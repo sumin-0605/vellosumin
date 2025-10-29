@@ -1,0 +1,271 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Pretendard', sans-serif;
+  background-color: #f9f9f9;
+  color: #111;
+}
+
+.cart-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  border: 1px solid #e0e0e0;
+}
+
+/* 장바구니 */
+.cart-header {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* 로고 */
+.logo {
+  width: 100px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.cart-header h2 {
+  font-size: 1.2rem;
+}
+
+/* 중앙컨텐츠 */
+.cart-main {
+  padding: 1rem 1.5rem;
+  text-align: center;
+}
+
+/* 장바구니 아이콘 */
+.cart-icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin: 1.5rem auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-icon-circle i {
+  font-size: 1.5rem;
+  color: #444;
+}
+
+/* 장바구니가 비었습니다 */
+.empty-text {
+  margin: 0.5rem 0 1rem;
+}
+
+/* 계속 쇼핑하기 */
+.shop-btn {
+  background: black;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* 쇼핑버튼 호버 */
+.shop-btn:hover {
+  background-color: #333;
+  transform: scale(1.03);
+}
+
+/* 하단글씨 */
+.cart-info {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* 결제카드 */
+.payment-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* 결제카드 호버 */
+.payment-icons img:hover {
+  opacity: 0.4;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.payment-icons img {
+  height: 2.5rem;
+  width: auto;
+}
+
+.bottom-nav {
+  height: 56px;
+  background-color: white;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bottom-nav a {
+  color: black;
+  font-size: 1.2rem;
+}
+
+/* 햄버거 X 모양으로 바뀌는거 */
+.hamburger-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  cursor: pointer;
+  z-index: 10000;
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.hamburger-toggle .line {
+  width: 20px;
+  height: 2px;
+  background-color: black;
+  transition: all 0.3s ease;
+}
+
+.hamburger-toggle.active .line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger-toggle.active .line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-toggle.active .line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* 사이드바 */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  padding-bottom: 60px;
+  background-color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 9998;
+}
+
+.sidebar.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sidebar-logo {
+  width: 120px;
+  margin-bottom: 2rem;
+}
+
+.sidebar-menu {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  margin: 1rem 0;
+}
+
+.sidebar-menu a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #111;
+  font-weight: bold;
+}
+
+.sidebar-toggle {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  background: black;
+  color: white;
+
+  padding: 0.7rem 1rem;
+  z-index: 9999;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 9997;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* 사이드바 열였을 때 글자 애니메이션 */
+/* 기본 상태: 투명 + 아래로 이동 */
+.fade-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* 사이드바가 active일 때 순차적으로 등장 */
+.sidebar.active .fade-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 딜레이를 다르게 줘서 계단처럼 보여주기 */
+.delay-1 {
+  transition-delay: 0.2s;
+}
+.delay-2 {
+  transition-delay: 0.4s;
+}
+.delay-3 {
+  transition-delay: 0.6s;
+}
+.delay-4 {
+  transition-delay: 0.8s;
+}
