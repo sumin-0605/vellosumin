@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/shopping.css">
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장바구니</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="cart-container">
+    <header class="cart-header">
+        <a href="index.html">
+      <img src="./img/VELOCITYN_logo.png" alt="로고" class="logo"></a>
+      <h2>장바구니 <span>(0)</span></h2>
+    </header>
+
+    <main class="cart-main">
+      <div class="cart-icon-circle">
+        <i class="fas fa-shopping-bag"></i>
+      </div>
+      <p class="empty-text">장바구니가 비었습니다</p>
+      <A href="product-detail.html"><button class="shop-btn">계속 쇼핑하기</button></A>
+
+      <div class="cart-info">
+        <p><strong>30일 이내 무료 반품</strong></p>
+        <p>사용 가능한 결제 수단</p>
+        <div class="payment-icons">
+          <img src="./img/card1.png" alt="PayPal">
+          <img src="./img/card2.png" alt="Apple Pay">
+          <img src="./img/card3.png" alt="Visa">
+          <img src="./img/card4.png" alt="Mastercard">
+          <img src="./img/card5.png" alt="Amex">
+          <img src="./img/card6.png" alt="Korean Card">
+        </div>
+      </div>
+    </main>
+
+    <!-- 하단 네비게이션바 -->
+<nav class="bottom-nav">
+        <a href="search.html"><i class="fa fa-search"></i><span></span></a>
+        <a href="shopping.html"><i class="fa fa-shopping-cart"></i><span></span></a>
+        <a href="login.html"><i class="fa fa-user"></i><span></span></a>
+        <button class="hamburger-toggle" id="hamburgerToggle" type="button">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+    </nav>
+
+
+        <!-- 사이드바 -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+ 
+        <ul class="sidebar-menu">
+
+            <li class="fade-item delay-1"><a href="index.html">홈</a></li>
+            <li class="fade-item delay-3"><a href="#">쇼핑하기</a></li>
+            <li class="fade-item delay-4"><a href="login.html">로그인 / 회원가입</a></li>
+        </ul>
+    </aside>
+
+
+        <!-- 햄버거 x모양으로 바뀌는거 -->
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('active'); // X로 바꾸기
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        });
+
+        sidebarOverlay.addEventListener('click', () => {
+            hamburgerBtn.classList.remove('active'); // 닫기 시 원복
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
+    

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/search.css">
+  <!-- Font Awesome 아이콘 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+  <!-- 스와이프 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+</head>
+
+<body>
+  <div class="search-container">
+
+    <div class="search-bar">
+      <button class="search-icon-btn" id="searchIconBtn">
+        <i class="fa fa-search"></i>
+      </button>
+      <input type="text" class="search-input" id="searchInput" placeholder="검색어를 입력하세요" />
+    </div>
+
+    <!-- 추천 검색어 -->
+    <div class="search-suggestions">
+      <button class="suggest-btn">vellotilt</button>
+      <button class="suggest-btn">vellocloudfit</button>
+      <button class="suggest-btn">cloud</button>
+      <button class="suggest-btn">running</button>
+      <button class="suggest-btn">pants</button>
+    </div>
+
+    <h2 class="qnah2">QnA</h2>
+    <div class="swiper qna-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide qna-container">
+          <span class="qnatextbold" style="text-align: center;">주문한 제품을 반품하려면 <br /> 어떻게 해야하나요?</span>
+          <br />
+          <br />
+          <span class="qnatextnomal">구매 후 30일 이내이며, 제품이 사용한 적 없는 새 제품이고, 원래 상태로 온전히 포장되어있는 경우에만 반품하실 수 있습니다.</span>
+        </div>
+
+        <div class="swiper-slide qna-container">
+          <span class="qnatextbold" style="text-align: center;">배송은 얼마나 걸리나요?</span>
+          <br />
+          <br />
+          <span class="qnatextnomal">영업일 기준 평균 1 ~ 3일 정도 소요됩니다.</span>
+        </div>
+        <div class="swiper-slide qna-container">
+          <span class="qnatextbold" style="text-align: center;">회원 탈퇴는 어떻게 하나요?</span>
+          <br />
+          <br />
+          <span class="qnatextnomal">마이페이지 → 계정설정 → 회원탈퇴 메뉴에서 가능합니다.</span>
+        </div>
+      </div>
+
+
+      
+    </div>
+    <a href="index.html"><button class="search-close-btn">✕</button></a>
+  </div>
+  <!-- 검색 아이콘 누르면 검색창 열리도록 -->
+  <script>
+    const iconBtn = document.getElementById("searchIconBtn");
+    const searchInput = document.getElementById("searchInput");
+    const searchBar = document.querySelector(".search-bar");
+
+    iconBtn.addEventListener("click", () => {
+      searchBar.classList.toggle("expanded");
+      searchInput.classList.toggle("active");
+
+      if (searchInput.classList.contains("active")) {
+        searchInput.focus();
+      }
+
+    });
+
+  </script>
+  <!-- 추천 검색어 누르면 검색창에 들어가고, 검색창 자동으로 열리도록 -->
+  <script>
+    const suggestBtns = document.querySelectorAll('.suggest-btn');
+
+    suggestBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        searchBar.classList.add('expanded');
+        searchInput.classList.add('active');
+        searchInput.value = btn.textContent;
+        searchInput.focus();
+      });
+    });
+  </script>
+
+  <!-- 스와이프 -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- 큐앤에이 스와이프 -->
+  <script>
+    const qnaSwiper = new Swiper('.qna-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
+
+
+</body>
+
+</html>
