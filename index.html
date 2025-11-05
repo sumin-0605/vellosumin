@@ -1,400 +1,391 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VELOCITYN</title>
-    <!-- 스와이프 CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <!-- 아이콘 css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VELOCITYN</title>
+  <!-- Favicon -->
+<link rel="icon" type="image/png" href="./img/favicon.png" sizes="32x32" />
 
-    <link rel="stylesheet" href="./css/main.css" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Font Awesome (decorative icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="./css/main.css" />
+
+  <!-- a11y helpers (only utilities) -->
+  <style>
+    .visually-hidden{position:absolute!important;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap}
+    .skip-link{position:absolute;left:-9999px;top:auto}
+    .skip-link:focus{left:16px;top:16px;background:#000;color:#fff;padding:8px 12px;border-radius:8px;z-index:10000}
+    /* Optional: focus ring for keyboard users */
+    .focus-ring:focus-visible{outline:2px solid #2b6ff9;outline-offset:2px}
+  </style>
 </head>
 
-<s>
-    <!-- HEADER(로고, 네비게이션) -->
-    <header class="header">
-        <div class="logo">VELOCITYN</div>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="product-detail.html">쇼핑하기</a></li>
-                <li><a href="shopping.html">장바구니</a></li>
-            </ul>
-        </nav>
-        <div class="icons">
-            <a href="search.html"><i class="fa fa-search"></i></a>
-            <a href="login.html"><i class="fa fa-user"></i></a>
-            <button class="hamburger-toggle" id="hamburgerToggleDesktop" type="button">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </button>
-        </div>
+<body>
+  <!-- Skip to content -->
+  <a class="skip-link" href="#main">본문 바로가기</a>
 
-    </header>
-    <!-- HERO SECTION (메인 영상 배너 영역) -->
-    <section class="hero">
-        <div class="movie-desktop">
+  <!-- ===== Header / Global navigation ===== -->
+  <header class="header" role="banner">
+    <div class="logo" aria-label="VELOCITYN 로고">VELOCITYN</div>
 
-
-
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="./Video/desktop.mp4" type="video/mp4" />
-            </video>
-        </div>
-
-        <div class="movie-mobile">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="./Video/phone.mp4" type="video/mp4" />
-            </video>
-        </div>
-        <div class="hero-text">
-            <h1>Training by Velocityn</h1>
-            <p>
-                일상을 통해 자신을 표현하는<br />
-                트렌디한 트레이닝 컬렉션
-            </p>
-            <div class="hero-buttons">
-                <button type="button" class="herobutton1">남성용 쇼핑하기</button>
-                <button type="button" class="herobutton2">여성용 쇼핑하기</button>
-            </div>
-        </div>
-        <!-- 영상 멈추기 버튼 -->
-        <button id="videoToggle" class="video-toggle">⏸</button>
-    </section>
-
-    <!-- 상품 나열 -->
-    <section class="exclusive">
-        <h2>VELOCITYN EXCLUSIVE T-SHIRTS</h2>
-        <p>벨로시틴을 대표하는 이미지를 담다</p>
-        <!-- 전체제품 스와이프영역 -->
-        <div class="swiper exclusive-swiper">
-            <div class="swiper-wrapper">
-                <!-- 제품 1 -->
-                <div class="swiper-slide product-card">
-                    <img src="./img/product1.png" alt="티셔츠1" />
-                    <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
-                    <strong>49,900원</strong>
-                </div>
-                <!-- 제품 2 -->
-                <div class="swiper-slide product-card">
-                    <img src="./img/product2.png" alt="티셔츠2" />
-                    <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
-                    <strong>49,900원</strong>
-                </div>
-                <!-- 제품 3 -->
-                <div class="swiper-slide product-card">
-                    <img src="./img/product3.png" alt="티셔츠3" />
-                    <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
-                    <strong>49,900원</strong>
-                </div>
-                <!-- 제품 4 -->
-                <div class="swiper-slide product-card">
-                    <img src="./img/product4.png" alt="티셔츠3" />
-                    <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
-                    <strong>49,900원</strong>
-                </div>
-                <!-- 제품 4 -->
-                <div class="swiper-slide product-card">
-                    <img src="./img/product4.png" alt="티셔츠3" />
-                    <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
-                    <strong>49,900원</strong>
-                </div>
-                <!-- 제품 4 -->
-                <div class="swiper-slide product-card">
-                    <img src="./img/product4.png" alt="티셔츠3" />
-                    <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
-                    <strong>49,900원</strong>
-                </div>
-                <!-- 제품 4 -->
-                <div class="swiper-slide product-card">
-                    <img src="./img/product4.png" alt="티셔츠3" />
-                    <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
-                    <strong>49,900원</strong>
-                </div>
-                <!-- 제품 4 -->
-                <div class="swiper-slide product-card">
-                    <img src="./img/product4.png" alt="티셔츠3" />
-                    <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
-                    <strong>49,900원</strong>
-                </div>
-            </div>
-        </div>
-        <!-- 모두보기 버튼 -->
-        <button class="view-all">모두보기</button>
-    </section>
-
-    <!-- CATEGORY BANNERS -->
-    <section class="categories">
-<a href="product-detail.html#shoes" class="category-card">
-  <img src="./img/categories1.png" alt="신발" />
-
-</a>
-
-<a href="product-detail.html#clothes" class="category-card">
-  <img src="./img/categories2.png" alt="의류" />
-
-</a>
-
-<a href="product-detail.html#goods" class="category-card">
-  <img src="./img/categories3.png" alt="스포츠 용품" />
- 
-</a>
-
-    </section>
-
-    <!-- 수정만든포스터 -->
-    <section class="move-in-style">
-        <!-- <h2>MOVE IN STYLE</h2>
-    <p>밸로시틴이 제안하는 일상 속 에너지핏</p> -->
-        <img src="./img/sjposter.png" alt="무브 인 스타일" />
-    </section>
-
-    <!-- 벨로시틴필름 -->
-    <section class="films">
-        <h2>VELOCITYN FILM</h2>
-        <div class="swiper film-swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="./img/film1.png" alt="필름1" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="./img/film2.png" alt="필름2" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="./img/film3.png" alt="필름3" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="./img/film4.png" alt="필름4" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="./img/film5.png" alt="필름5" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="./img/film6.png" alt="필름6" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="./img/film6.png" alt="필름6" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="./img/film6.png" alt="필름6" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="./img/film6.png" alt="필름6" />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 포스터터 -->
-    <a href="login.html">
-        <section class="poster">
-            <!-- <h2>포스터</h2> -->
-            <div class="poster-area">
-                <img class="posterimg" src="./img/event_banner.gif" alt="" />
-            </div>
-        </section>
-    </a>
-
-    <!-- 푸터 -->
-    <footer class="footer">
-        <div class="footer-info">
-            <p>고객센터 : 0000-000-0000</p>
-            <p>주소지 : 서울시 어디구 어디로 123</p>
-        </div>
-        <div class="social-icons">
-            <a href="#"><img src="./img/footer_insta.png" alt="" /></a>
-            <a href="#"><img src="./img/footer_facebook.png" alt="" /></a>
-            <a href="#"><img src="./img/footer_youtube.png" alt="" /></a>
-            <a href="#"><img src="./img/footer_telle.png" alt="" /></a>
-        </div>
-        <ul class="footer-links">
-            <li><a href="#">이용약관</a></li>
-            <li><a href="#">개인정보처리방침</a></li>
-            <li><a href="#">청소년 보호정책</a></li>
-        </ul>
-    </footer>
-
-    <!-- 모바일용 헤더 (로고) -->
-    <div class="mobile-header">
-        <img src="./img/VELOCITYN_logo_white.png" alt="VELOCITYN" class="mobile-logo" />
-    </div>
-
-
-    <!-- 하단 네비게이션바 -->
-    <nav class="bottom-nav">
-        <a href="search.html"><i class="fa fa-search"></i><span></span></a>
-        <a href="shopping.html"><i class="fa fa-shopping-cart"></i><span></span></a>
-        <a href="login.html"><i class="fa fa-user"></i><span></span></a>
-        <button class="hamburger-toggle" id="hamburgerToggleMobile" type="button">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
-        </button>
+    <nav class="primary-nav" aria-label="주요 메뉴">
+      <ul class="nav-list" role="list">
+        <li><a href="product-detail.html">쇼핑하기</a></li>
+        <li><a href="shopping.html">장바구니</a></li>
+      </ul>
     </nav>
 
+    <div class="icons">
+      <a class="focus-ring" href="search.html" aria-label="검색">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </a>
+      <a class="focus-ring" href="login.html" aria-label="로그인">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </a>
+      <button class="hamburger-toggle focus-ring" id="hamburgerToggleDesktop" type="button"
+              aria-controls="sidebar" aria-expanded="false" aria-label="사이드 메뉴 열기">
+        <span class="line" aria-hidden="true"></span>
+        <span class="line" aria-hidden="true"></span>
+        <span class="line" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
 
-    <!-- 사이드바 -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-    <aside class="sidebar" id="sidebar">
+  <!-- ===== Main content ===== -->
+  <main id="main">
+    <!-- === Hero (video banner) === -->
+    <section class="hero" aria-label="브랜드 히어로 배너">
+      <div class="movie-desktop" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline poster="./img/hero-poster.jpg"
+               aria-label="브랜드 트레이닝 컬렉션 홍보 영상(데스크톱)">
+          <source src="./Video/desktop.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-        <ul class="sidebar-menu">
+      <div class="movie-mobile" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline poster="./img/hero-poster-m.jpg"
+               aria-label="브랜드 트레이닝 컬렉션 홍보 영상(모바일)">
+          <source src="./Video/phone.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-            <li class="fade-item delay-1"><a href="index.html">홈</a></li>
-            <li class="fade-item delay-3"><a href="product-detail.html">쇼핑하기</a></li>
-            <li class="fade-item delay-4"><a href="login.html">로그인 / 회원가입</a></li>
+      <div class="hero-text">
+        <h1>Training by Velocityn</h1>
+        <p>일상을 통해 자신을 표현하는<br />트렌디한 트레이닝 컬렉션</p>
+        <div class="hero-buttons">
+          <!-- 이동이 목적이므로 a 요소 사용 -->
+          <a class="herobutton1 focus-ring" href="product-detail.html#man" role="button">남성용 쇼핑하기</a>
+          <a class="herobutton2 focus-ring" href="product-detail.html#woman" role="button">여성용 쇼핑하기</a>
+        </div>
+      </div>
+
+      <!-- Video pause/play toggle -->
+      <button id="videoToggle" class="video-toggle focus-ring" type="button" aria-pressed="false" aria-label="영상 일시정지">⏸</button>
+    </section>
+
+    <!-- === Exclusive T-shirts (carousel) === -->
+    <section class="exclusive" aria-labelledby="exclusive-title">
+      <h2 id="exclusive-title">VELOCITYN EXCLUSIVE T‑SHIRTS</h2>
+      <p>벨로시틴을 대표하는 이미지를 담다</p>
+
+      <div class="swiper exclusive-swiper" aria-label="대표 티셔츠 캐러셀">
+        <ul class="swiper-wrapper" role="list">
+          <!-- Slide 1 -->
+          <li class="swiper-slide product-card">
+            <a href="#" class="product-link">
+              <img src="./img/product1.png" alt="LIN 서울 티셔츠 반팔티 (오버핏) 화이트" />
+              <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
+              <strong>49,900원</strong>
+            </a>
+          </li>
+          <!-- Slide 2 -->
+          <li class="swiper-slide product-card">
+            <a href="#" class="product-link">
+              <img src="./img/product2.png" alt="LIN 서울 티셔츠 반팔티 (오버핏) 블랙" />
+              <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
+              <strong>49,900원</strong>
+            </a>
+          </li>
+          <!-- Slide 3 -->
+          <li class="swiper-slide product-card">
+            <a href="#" class="product-link">
+              <img src="./img/product3.png" alt="LIN 서울 티셔츠 반팔티 (오버핏) 그레이" />
+              <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
+              <strong>49,900원</strong>
+            </a>
+          </li>
+          <!-- Slide 4..n (원래 구조 유지) -->
+          <li class="swiper-slide product-card">
+            <a href="#" class="product-link">
+              <img src="./img/product4.png" alt="LIN 서울 티셔츠 반팔티 (오버핏) 네이비" />
+              <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
+              <strong>49,900원</strong>
+            </a>
+          </li>
+          <li class="swiper-slide product-card">
+            <a href="#" class="product-link">
+              <img src="./img/product4.png" alt="LIN 서울 티셔츠 반팔티 (오버핏) 네이비" />
+              <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
+              <strong>49,900원</strong>
+            </a>
+          </li>
+          <li class="swiper-slide product-card">
+            <a href="#" class="product-link">
+              <img src="./img/product4.png" alt="LIN 서울 티셔츠 반팔티 (오버핏) 네이비" />
+              <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
+              <strong>49,900원</strong>
+            </a>
+          </li>
+          <li class="swiper-slide product-card">
+            <a href="#" class="product-link">
+              <img src="./img/product4.png" alt="LIN 서울 티셔츠 반팔티 (오버핏) 네이비" />
+              <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
+              <strong>49,900원</strong>
+            </a>
+          </li>
+          <li class="swiper-slide product-card">
+            <a href="#" class="product-link">
+              <img src="./img/product4.png" alt="LIN 서울 티셔츠 반팔티 (오버핏) 네이비" />
+              <p>LIN 서울 티셔츠 반팔티 (오버핏)</p>
+              <strong>49,900원</strong>
+            </a>
+          </li>
         </ul>
-    </aside>
+      </div>
 
+      <p class="view-all-wrap">
+        <a class="view-all focus-ring" href="product-detail.html" role="button" aria-label="전체 상품 보러 가기">모두보기</a>
+      </p>
+    </section>
 
+    <!-- === Category banners === -->
+    <section class="categories" aria-labelledby="category-title">
+      <h2 id="category-title" class="visually-hidden">카테고리 바로가기</h2>
+      <ul class="category-list" role="list">
+        <li class="category-card">
+          <a href="product-detail.html#shoes" class="focus-ring">
+            <img src="./img/categories1.png" alt="신발 카테고리 이동" />
+          </a>
+        </li>
+        <li class="category-card">
+          <a href="product-detail.html#clothes" class="focus-ring">
+            <img src="./img/categories2.png" alt="의류 카테고리 이동" />
+          </a>
+        </li>
+        <li class="category-card">
+          <a href="product-detail.html#goods" class="focus-ring">
+            <img src="./img/categories3.png" alt="스포츠 용품 카테고리 이동" />
+          </a>
+        </li>
+      </ul>
+    </section>
 
-    <!-- 스와이프 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- === Move in Style (image poster) === -->
+    <section class="move-in-style" aria-labelledby="move-title">
+      <h2 id="move-title" class="visually-hidden">MOVE IN STYLE</h2>
+      <figure>
+        <img src="./img/sjposter.png" alt="MOVE IN STYLE 캠페인 포스터" />
+        <figcaption class="visually-hidden">밸로시틴이 제안하는 일상 속 에너지핏</figcaption>
+      </figure>
+    </section>
 
+    <!-- === VELOCITYN Film (carousel) === -->
+    <section class="films" aria-labelledby="film-title">
+      <h2 id="film-title">VELOCITYN FILM</h2>
+      <div class="swiper film-swiper" aria-label="브랜드 필름 갤러리">
+        <ul class="swiper-wrapper" role="list">
+          <li class="swiper-slide"><img src="./img/film1.png" alt="필름 이미지 1" /></li>
+          <li class="swiper-slide"><img src="./img/film2.png" alt="필름 이미지 2" /></li>
+          <li class="swiper-slide"><img src="./img/film3.png" alt="필름 이미지 3" /></li>
+          <li class="swiper-slide"><img src="./img/film4.png" alt="필름 이미지 4" /></li>
+          <li class="swiper-slide"><img src="./img/film5.png" alt="필름 이미지 5" /></li>
+          <li class="swiper-slide"><img src="./img/film6.png" alt="필름 이미지 6" /></li>
+          <li class="swiper-slide"><img src="./img/film6.png" alt="필름 이미지 7" /></li>
+          <li class="swiper-slide"><img src="./img/film6.png" alt="필름 이미지 8" /></li>
+          <li class="swiper-slide"><img src="./img/film6.png" alt="필름 이미지 9" /></li>
+        </ul>
+      </div>
+    </section>
 
-    <!-- 제품 나열 스와이프 -->
-    <script>
-        const swiper = new Swiper(".exclusive-swiper", {
-            slidesPerView: "auto",
-            spaceBetween: 16,
-            grabCursor: true,
-        });
-    </script>
-    <!-- 밸로시틴 필름 스와이프 -->
-    <script>
-        const filmSwiper = new Swiper(".film-swiper", {
-            slidesPerView: "auto",
-            centeredSlides: true,
-            spaceBetween: 16,
-            loop: true,
-        });
-    </script>
+    <!-- === Poster (login CTA) === -->
+    <section class="poster" aria-labelledby="poster-title">
+      <h2 id="poster-title" class="visually-hidden">이벤트 참여</h2>
+      <div class="poster-area">
+        <a class="focus-ring" href="login.html" aria-label="이벤트 참여를 위해 로그인 페이지로 이동">
+          <img class="posterimg" src="./img/event_banner.gif" alt="이벤트 배너" />
+        </a>
+      </div>
+    </section>
+  </main>
 
+  <!-- ===== Footer ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-info">
+      <p>고객센터 : 0000-000-0000</p>
+      <p>주소지 : 서울시 어디구 어디로 123</p>
+    </div>
+    <div class="social-icons" aria-label="소셜 링크">
+      <a href="#" aria-label="인스타그램"><img src="./img/footer_insta.png" alt="" aria-hidden="true" /></a>
+      <a href="#" aria-label="페이스북"><img src="./img/footer_facebook.png" alt="" aria-hidden="true" /></a>
+      <a href="#" aria-label="유튜브"><img src="./img/footer_youtube.png" alt="" aria-hidden="true" /></a>
+      <a href="#" aria-label="텔레그램"><img src="./img/footer_telle.png" alt="" aria-hidden="true" /></a>
+    </div>
+    <ul class="footer-links" role="list" aria-label="약관 링크">
+      <li><a href="#">이용약관</a></li>
+      <li><a href="#">개인정보처리방침</a></li>
+      <li><a href="#">청소년 보호정책</a></li>
+    </ul>
+  </footer>
 
-    <script>
+  <!-- ===== Bottom quick nav (mobile) ===== -->
+  <nav class="bottom-nav" aria-label="하단 빠른메뉴">
+    <a class="focus-ring" href="search.html" aria-label="검색"><i class="fa fa-search" aria-hidden="true"></i><span class="visually-hidden">검색</span></a>
+    <a class="focus-ring" href="shopping.html" aria-label="장바구니"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="visually-hidden">장바구니</span></a>
+    <a class="focus-ring" href="login.html" aria-label="로그인"><i class="fa fa-user" aria-hidden="true"></i><span class="visually-hidden">로그인</span></a>
+    <button class="hamburger-toggle focus-ring" id="hamburgerToggleMobile" type="button"
+            aria-controls="sidebar" aria-expanded="false" aria-label="사이드 메뉴 열기">
+      <span class="line" aria-hidden="true"></span>
+      <span class="line" aria-hidden="true"></span>
+      <span class="line" aria-hidden="true"></span>
+    </button>
+  </nav>
 
-        // DOM 요소 불러오기
-        const header = document.querySelector('.header');
-        const nav = document.querySelector(".bottom-nav");
-        const hamburgerBtnDesktop = document.getElementById('hamburgerToggleDesktop');
-        const hamburgerBtnMobile = document.getElementById('hamburgerToggleMobile');
-        const sidebar = document.getElementById('sidebar');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-        const videoToggle = document.getElementById('videoToggle');
-        const videoElements = document.querySelectorAll('.hero-video');
+  <!-- ===== Sidebar navigation ===== -->
+  <div class="sidebar-overlay" id="sidebarOverlay" hidden></div>
+  <nav class="sidebar" id="sidebar" aria-label="사이드 메뉴" hidden>
+    <ul class="sidebar-menu" role="list">
+      <li class="fade-item delay-1"><a href="index.html">홈</a></li>
+      <li class="fade-item delay-3"><a href="product-detail.html">쇼핑하기</a></li>
+      <li class="fade-item delay-4"><a href="login.html">로그인 / 회원가입</a></li>
+    </ul>
+  </nav>
 
-        // 줄 생기는 문제 해결용 - 전체 줄 제거
-        document.querySelectorAll('*').forEach(el => {
-            el.style.textDecoration = 'none';
-        });
+  <!-- ===== Scripts ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script defer>
+    // Exclusive carousel
+    document.addEventListener('DOMContentLoaded', function(){
+      new Swiper('.exclusive-swiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 16,
+        grabCursor: true,
+        a11y: true
+      });
 
-        // 공통: header 배경 및 글자 색 갱신
-        function updateHeaderState() {
-            const isSidebarOpen = sidebar.classList.contains('active');
-            const isScrolled = window.scrollY > 50;
+      // Film carousel
+      new Swiper('.film-swiper', {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 16,
+        loop: true,
+        a11y: true
+      });
+    });
+  </script>
 
-            if (isScrolled || isSidebarOpen) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+  <script defer>
+    // ===== UI controls: header state, sidebar, video toggle =====
+    const headerEl = document.querySelector('.header');
+    const bottomNav = document.querySelector('.bottom-nav');
+    const btnDesktop = document.getElementById('hamburgerToggleDesktop');
+    const btnMobile  = document.getElementById('hamburgerToggleMobile');
+    const sidebar    = document.getElementById('sidebar');
+    const overlay    = document.getElementById('sidebarOverlay');
+    const videoBtn   = document.getElementById('videoToggle');
+    const videos     = document.querySelectorAll('.hero-video');
 
-            // 하단 고정 메뉴 (모바일)
-            if (nav) {
-                if (window.scrollY > 10) {
-                    nav.classList.add("scrolled");
-                } else {
-                    nav.classList.remove("scrolled");
-                }
-            }
+    function setAriaExpanded(btn, expanded){
+      if(!btn) return;
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      btn.setAttribute('aria-label', expanded ? '사이드 메뉴 닫기' : '사이드 메뉴 열기');
+    }
 
-            // 햄버거 버튼 색 (header.scrolled 클래스 활용)
-            //m공통 햄버거 색상 제어
-            const isDesktop = window.innerWidth >= 768;
-            const isMobile = window.innerWidth < 768;
+    function openSidebar(){
+      sidebar.removeAttribute('hidden');
+      overlay.removeAttribute('hidden');
+      setAriaExpanded(btnDesktop, true);
+      setAriaExpanded(btnMobile, true);
+      headerEl && headerEl.classList.add('scrolled');
+    }
 
-            // 데스크탑: header 스크롤 여부로 판단
-            if (isDesktop) {
-                const desktopScrolled = header.classList.contains('scrolled');
-                document.querySelectorAll('#hamburgerToggleDesktop .line').forEach(line => {
-                    line.style.backgroundColor = desktopScrolled ? 'black' : 'white';
-                });
-            }
+    function closeSidebar(){
+      sidebar.setAttribute('hidden', '');
+      overlay.setAttribute('hidden', '');
+      setAriaExpanded(btnDesktop, false);
+      setAriaExpanded(btnMobile, false);
+    }
 
-            // 모바일: nav (bottom-nav) 스크롤 여부로 판단
-            if (isMobile) {
-                const navScrolled = nav.classList.contains('scrolled');
-                document.querySelectorAll('#hamburgerToggleMobile .line').forEach(line => {
-                    line.style.backgroundColor = navScrolled ? 'black' : 'white';
-                });
-            }
+    function toggleSidebarFrom(btn){
+      const willOpen = sidebar.hasAttribute('hidden');
+      willOpen ? openSidebar() : closeSidebar();
+    }
 
-        }
-        // 모바일 하단 네비게이션 상태에 따라 햄버거 메뉴 색상 조정
-        if (window.innerWidth < 768) {
-            const isNavScrolled = nav.classList.contains("scrolled");
+    btnDesktop && btnDesktop.addEventListener('click', ()=>toggleSidebarFrom(btnDesktop));
+    btnMobile  && btnMobile.addEventListener('click',  ()=>toggleSidebarFrom(btnMobile));
+    overlay && overlay.addEventListener('click', closeSidebar);
 
-            document.querySelectorAll('#hamburgerToggleMobile .line').forEach(line => {
-                line.style.backgroundColor = isNavScrolled ? 'black' : 'white';
-            });
-        }
+    // Header/bottom-nav scrolled state (if you style via .scrolled)
+    function onScroll(){
+      const y = window.scrollY || document.documentElement.scrollTop;
+      if(headerEl){
+        if(y > 50) headerEl.classList.add('scrolled');
+        else headerEl.classList.remove('scrolled');
+      }
+      if(bottomNav){
+        if(y > 10) bottomNav.classList.add('scrolled');
+        else bottomNav.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
 
+    // Video toggle
+    let paused = false;
+    if(videoBtn){
+      videoBtn.addEventListener('click', ()=>{
+        paused = !paused;
+        videos.forEach(v => paused ? v.pause() : v.play());
+        videoBtn.textContent = paused ? '▶' : '⏸';
+        videoBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+        videoBtn.setAttribute('aria-label', paused ? '영상 재생' : '영상 일시정지');
+      });
+    }
+  </script>
+  <script>
+  // ===== HOTFIX v2: video toggle 복구 및 안전가드 =====
+  document.addEventListener('DOMContentLoaded', function(){
+    const btn = document.getElementById('videoToggle');
+    const videos = document.querySelectorAll('.hero-video');
+    if (!btn || !videos.length) return;
 
-        // 스크롤 이벤트 처리
-        window.addEventListener('scroll', updateHeaderState);
+    // 현재 상태 캐시
+    const getPaused = () => btn.getAttribute('data-paused') === 'true';
+    const setPaused = (p) => {
+      btn.setAttribute('data-paused', p ? 'true' : 'false');
+      btn.textContent = p ? '▶' : '⏸';
+      btn.setAttribute('aria-pressed', p ? 'true' : 'false');
+      btn.setAttribute('aria-label', p ? '영상 재생' : '영상 일시정지');
+    };
 
-        // 햄버거 버튼으로 사이드바 토글하는 함수
-        function toggleSidebar(btn) {
-            btn.classList.toggle('active');
-            sidebar.classList.toggle('active');
-            sidebarOverlay.classList.toggle('active');
-            updateHeaderState();
-            videoToggle.style.display = sidebar.classList.contains('active') ? 'none' : 'block';
+    // 초기 상태 표준화
+    setPaused(false);
 
-            // videoToggle이 사이드바 위로 안 올라오게 z-index 조정
-            if (sidebar.classList.contains('active')) {
-                videoToggle.style.zIndex = '1';
-            } else {
-                videoToggle.style.zIndex = '10001';
-            }
-        }
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      const next = !getPaused();
+      videos.forEach(v => {
+        try { next ? v.pause() : v.play(); } catch (err) { /* 무시 */ }
+      });
+      setPaused(next);
+    });
+  });
+</script>
 
-        //  데스크탑 햄버거 버튼 클릭 시
-        if (hamburgerBtnDesktop) {
-            hamburgerBtnDesktop.addEventListener('click', () => toggleSidebar(hamburgerBtnDesktop));
-        }
-
-        //  모바일 햄버거 버튼 클릭 시
-        if (hamburgerBtnMobile) {
-            hamburgerBtnMobile.addEventListener('click', () => toggleSidebar(hamburgerBtnMobile));
-        }
-
-        //  오버레이 클릭 시 닫기
-        sidebarOverlay.addEventListener('click', () => {
-            hamburgerBtnDesktop?.classList.remove('active');
-            hamburgerBtnMobile?.classList.remove('active');
-            sidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            updateHeaderState();
-            videoToggle.style.display = 'block';
-            videoToggle.style.zIndex = '10001';
-        });
-
-        //  영상 재생/일시정지 기능
-        let isPaused = false;
-        videoToggle.addEventListener('click', () => {
-            videoElements.forEach(video => {
-                isPaused ? video.play() : video.pause();
-            });
-            isPaused = !isPaused;
-            videoToggle.textContent = isPaused ? '▶' : '⏸';
-        });
-
-        //  최초 실행 시 상태 갱신
-        updateHeaderState();
-    </script>
-    </body>
-
+</body>
 </html>
