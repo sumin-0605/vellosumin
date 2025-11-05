@@ -1,742 +1,511 @@
 <!DOCTYPE html>
-
 <html lang="ko">
-
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>
-    Document
-  </title>
-  <link href="./css/product-detail.css" rel="stylesheet" />
-  <!-- 아이콘 css -->
-  <!-- Font Awesome 아이콘 -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VELOCITYN · 상품 상세</title>
+  <meta name="description" content="VELOCITYN의 인기 상품을 한 눈에. 우먼/맨 베스트, 의류·신발·용품 카테고리별 상품을 확인하세요." />
+
+  <!-- 스타일 -->
+  <link rel="stylesheet" href="./css/product-detail.css" />
+
+  <!-- Font Awesome -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+  <!-- 접근성 유틸(최소) -->
+  <style>
+    .skip-link{position:absolute;left:-9999px;top:auto;background:#111;color:#fff;padding:.5rem .75rem;border-radius:.5rem}
+    .skip-link:focus{left:1rem;top:1rem;z-index:10000}
+    .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  </style>
+    <!-- Favicon -->
+<link rel="icon" type="image/png" href="./img/favicon.png" sizes="32x32" />
 </head>
 
 <body>
-  <!-- 상세페이지 HTML 구조 -->
-  <header class="top-nav">
+  <!-- 스킵 링크 -->
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+  <!-- 헤더 -->
+  <header class="top-nav" role="banner">
     <div class="nav-top">
-      <a href="index.html" style="text-decoration: none; color: black;">
-        <div class="logo">
-          VELOCITYN
-        </div>
-      </a>
-      <div class="nav-icons">
-        <a href="search.html">
-          <i class="fa fa-search">
-          </i>
+      <a href="index.html" class="logo">VELOCITYN</a>
+
+      <div class="nav-icons" role="group" aria-label="상단 바로가기">
+        <a href="search.html" aria-label="검색">
+          <i class="fa fa-search" aria-hidden="true"></i>
         </a>
-        <a href="shopping.html">
-          <i class="fa fa-shopping-cart">
-          </i>
+        <a href="shopping.html" aria-label="장바구니">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         </a>
-        <button class="hamburger-toggle" id="hamburgerToggleDesktop" type="button">
-          <span class="line">
-          </span>
-          <span class="line">
-          </span>
-          <span class="line">
-          </span>
+
+        <button class="hamburger-toggle" id="hamburgerToggleDesktop" type="button"
+                aria-label="사이드 메뉴 열기" aria-controls="sidebar" aria-expanded="false">
+          <span class="line" aria-hidden="true"></span>
+          <span class="line" aria-hidden="true"></span>
+          <span class="line" aria-hidden="true"></span>
         </button>
       </div>
     </div>
-    <nav class="nav-bottom">
+
+    <nav class="nav-bottom" aria-label="상단 카테고리">
       <ul class="nav-menu">
-        <li>
-          <a href="#">
-            woman best
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            man best
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            의류
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            신발
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            용품
-          </a>
-        </li>
+        <li><a href="#woman-best">woman best</a></li>
+        <li><a href="#man-best">man best</a></li>
+        <li><a href="#apparel">의류</a></li>
+        <li><a href="#shoes">신발</a></li>
+        <li><a href="#goods">용품</a></li>
       </ul>
     </nav>
   </header>
-  <main class="product-detail">
-    <!-- 상단 우먼베스트 이미지 섹션 -->
-    <section class="hero-banner">
-      <img alt="banner1" src="./product-detail-page-img/model/여자모델1.png" />
-      <img alt="banner2" src="./product-detail-page-img/model/여자모델2.png" />
-      <img alt="banner3" src="./product-detail-page-img/model/여자모델3.png" />
+
+  <!-- 메인 -->
+  <main id="main" class="product-detail" role="main">
+    <h1 class="visually-hidden">VELOCITYN 상품 상세</h1>
+
+    <!-- 상단 우먼 베스트 배너 -->
+    <section class="hero-banner" aria-label="여성 모델 배너">
+      <img src="./product-detail-page-img/model/여자모델1.png" alt="러닝 웨어 착용한 여성 모델 1" />
+      <img src="./product-detail-page-img/model/여자모델2.png" alt="러닝 웨어 착용한 여성 모델 2" />
+      <img src="./product-detail-page-img/model/여자모델3.png" alt="러닝 웨어 착용한 여성 모델 3" />
     </section>
-    <!-- 카테고리별 상품 리스트 -->
-    <section class="category-section">
-      <h2>
-        woman best
-      </h2>
-      <div class="product-grid">
-        <!-- 상품 카드들 -->
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/1.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/2.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 레깅스
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/3.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/4.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 스포츠 속옷
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/5.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/6.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 가방
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/7.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/8.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 후드티
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/9.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/10.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 티셔츠
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/11.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/12.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 레깅스
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/13.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/14.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 후드티
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/15.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/16.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 바디수트
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
+
+    <!-- WOMAN BEST -->
+    <section id="woman-best" class="category-section" aria-labelledby="heading-woman-best">
+      <h2 id="heading-woman-best">woman best</h2>
+      <div class="product-grid" role="list">
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=leggings-01" aria-label="벨로시틴 런업 트레이닝 레깅스 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/1.png" alt="벨로시틴 런업 트레이닝 레깅스, 블랙" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/2.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 레깅스</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=sports-bra-01" aria-label="벨로시틴 런업 트레이닝 스포츠 속옷 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/3.png" alt="벨로시틴 런업 트레이닝 스포츠 속옷, 블랙" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/4.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 스포츠 속옷</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=bag-01" aria-label="벨로시틴 런업 트레이닝 가방 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/5.png" alt="벨로시틴 런업 트레이닝 가방, 블랙" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/6.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 가방</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=hoodie-01" aria-label="벨로시틴 런업 트레이닝 후드티 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/7.png" alt="벨로시틴 런업 트레이닝 후드티, 블랙" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/8.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 후드티</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=tshirt-01" aria-label="벨로시틴 런업 트레이닝 티셔츠 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/9.png" alt="벨로시틴 런업 트레이닝 티셔츠, 블랙" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/10.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 티셔츠</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=leggings-02" aria-label="벨로시틴 런업 트레이닝 레깅스 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/11.png" alt="벨로시틴 런업 트레이닝 레깅스, 그레이" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/12.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 레깅스</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=hoodie-02" aria-label="벨로시틴 런업 트레이닝 후드티 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/13.png" alt="벨로시틴 런업 트레이닝 후드티, 그레이" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/14.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 후드티</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=bodysuit-01" aria-label="벨로시틴 런업 트레이닝 바디수트 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/15.png" alt="벨로시틴 런업 트레이닝 바디수트, 블랙" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/16.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 바디수트</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
       </div>
     </section>
-    <!-- 상단 맨베스트 이미지 섹션 -->
-    <section class="hero-banner">
-      <img alt="banner1" src="./product-detail-page-img/model/남자모델1.png" />
-      <img alt="banner2" src="./product-detail-page-img/model/남자모델2.png" />
-      <img alt="banner3" src="./product-detail-page-img/model/남자모델3.png" />
+
+    <!-- MAN BEST 배너 -->
+    <section class="hero-banner" aria-label="남성 모델 배너">
+      <img src="./product-detail-page-img/model/남자모델1.png" alt="러닝 웨어 착용한 남성 모델 1" />
+      <img src="./product-detail-page-img/model/남자모델2.png" alt="러닝 웨어 착용한 남성 모델 2" />
+      <img src="./product-detail-page-img/model/남자모델3.png" alt="러닝 웨어 착용한 남성 모델 3" />
     </section>
-    <section class="category-section">
-      <h2>
-        man best
-      </h2>
-      <div class="product-grid">
-        <!-- 상품 카드들 -->
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/man_pants1-2.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/man_pants1.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 팬츠
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/man_pants2-2.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/man_pants2.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 팬츠
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/man_pants3-2.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/man_pants3.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 팬츠
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/man_pants4-2.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/man_pants4.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 팬츠
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/man_top1-2.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/man_top1.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 티셔츠
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/man_top2-2.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/man_top2.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 후드티
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/man_top3-2.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/man_top3.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 운동복
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/man_top4-2.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/man_top4.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 런닝
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
+
+    <!-- MAN BEST -->
+    <section id="man-best" class="category-section" aria-labelledby="heading-man-best">
+      <h2 id="heading-man-best">man best</h2>
+      <div class="product-grid" role="list">
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=man-pants-01" aria-label="벨로시틴 런업 트레이닝 팬츠 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/man_pants1-2.png" alt="벨로시틴 런업 트레이닝 팬츠, 블랙" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/man_pants1.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 팬츠</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=man-pants-02" aria-label="벨로시틴 런업 트레이닝 팬츠 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/man_pants2-2.png" alt="벨로시틴 런업 트레이닝 팬츠, 네이비" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/man_pants2.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 팬츠</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=man-pants-03" aria-label="벨로시틴 런업 트레이닝 팬츠 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/man_pants3-2.png" alt="벨로시틴 런업 트레이닝 팬츠, 차콜" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/man_pants3.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 팬츠</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=man-pants-04" aria-label="벨로시틴 런업 트레이닝 팬츠 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/man_pants4-2.png" alt="벨로시틴 런업 트레이닝 팬츠, 라이트 그레이" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/man_pants4.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 팬츠</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=man-top-01" aria-label="벨로시틴 런업 트레이닝 티셔츠 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/man_top1-2.png" alt="벨로시틴 런업 트레이닝 티셔츠, 블랙" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/man_top1.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 티셔츠</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=man-hoodie-01" aria-label="벨로시틴 런업 트레이닝 후드티 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/man_top2-2.png" alt="벨로시틴 런업 트레이닝 후드티, 블랙" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/man_top2.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 후드티</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=man-set-01" aria-label="벨로시틴 런업 트레이닝 운동복 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/man_top3-2.png" alt="벨로시틴 런업 트레이닝 운동복 세트, 블랙" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/man_top3.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 운동복</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=man-running-01" aria-label="벨로시틴 런업 트레이닝 런닝 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/man_top4-2.png" alt="벨로시틴 런업 트레이닝 런닝, 화이트" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/man_top4.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 런닝</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
       </div>
-      <button class="btn-more">
-        더 보기
-      </button>
+      <button class="btn-more" type="button" aria-label="맨 베스트 더 보기">더 보기</button>
     </section>
-    <section class="category-section">
-      <h2>
-        의류
-      </h2>
-      <div class="product-grid">
-        <!-- 상품 카드들 -->
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./img/product1.png" class="main-img" alt="기본 이미지" />
-            <img src="#" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 티셔츠
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./img/product1.png" class="main-img" alt="기본 이미지" />
-            <img src="#" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 티셔츠
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./img/product1.png" class="main-img" alt="기본 이미지" />
-            <img src="#" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 티셔츠
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/1.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/2.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 레깅스
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/7.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/8.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 스포츠 속옷
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/man_top1-2.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/man_top1.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 팬츠
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/cloths/man_top3-2.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/cloths/man_top3.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 팬츠
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
+
+    <!-- 의류 -->
+    <section id="apparel" class="category-section" aria-labelledby="heading-apparel">
+      <h2 id="heading-apparel">의류</h2>
+      <div class="product-grid" role="list">
+        <!-- placeholder 문제가 있던 카드들: hover 이미지를 메인과 동일하게 세팅해 404 제거 -->
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=tee-basic-01" aria-label="벨로시틴 런업 트레이닝 티셔츠 상세 보기">
+            <img class="main-img" src="./img/product1.png" alt="벨로시틴 런업 트레이닝 티셔츠, 블랙" loading="lazy" />
+            <img class="hover-img" src="./img/product1.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 티셔츠</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=leggings-03" aria-label="벨로시틴 런업 트레이닝 레깅스 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/1.png" alt="벨로시틴 런업 트레이닝 레깅스, 블랙" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/2.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 레깅스</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=bra-02" aria-label="벨로시틴 런업 트레이닝 스포츠 속옷 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/7.png" alt="벨로시틴 런업 트레이닝 스포츠 속옷, 블랙" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/8.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 스포츠 속옷</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=man-pants-x1" aria-label="벨로시틴 런업 트레이닝 팬츠 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/man_top1-2.png" alt="벨로시틴 런업 트레이닝 팬츠, 블랙" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/man_top1.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 팬츠</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=man-pants-x3" aria-label="벨로시틴 런업 트레이닝 팬츠 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/cloths/man_top3-2.png" alt="벨로시틴 런업 트레이닝 팬츠, 세트" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/cloths/man_top3.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 팬츠</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
       </div>
-      <button class="btn-more">
-        더 보기
-      </button>
+      <button class="btn-more" type="button" aria-label="의류 더 보기">더 보기</button>
     </section>
-    <section class="category-section">
-      <h2>
-        신발
-      </h2>
-      <div class="shoes-grid">
-        <!-- 상품 카드들 -->
-        <div class="shoes-card">
-          <img alt="운동화" src="./product-detail-page-img/shoes/17.png" />
-          <img src="./product-detail-page-img/shoes/18.png" class="shoes-img" alt="운동화">
-          <p class="product-name">
-            벨로시틴 런업 팬텀 Gx 17 러닝슈즈
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="shoes-card">
-          <img alt="운동화" src="./product-detail-page-img/shoes/19.png" />
-          <img src="./product-detail-page-img/shoes/20.png" class="shoes-img" alt="운동화">
-          <p class="product-name">
-            벨로시틴 런업 TX 3 쿠셔닝 프로
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="shoes-card">
-          <img alt="운동화" src="./product-detail-page-img/shoes/21.png" />
-          <img src="./product-detail-page-img/shoes/22.png" class="shoes-img" alt="운동화">
-          <p class="product-name">
-            벨로시틴 런업 루덴 아카데미
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="shoes-card">
-          <img alt="운동화" src="./product-detail-page-img/shoes/23.png" />
-          <img src="./product-detail-page-img/shoes/24.png" class="shoes-img" alt="운동화">
-          <p class="product-name">
-            벨로시틴 런업 플라이 스트럭처 21
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="shoes-card">
-          <img alt="운동화" src="./product-detail-page-img/shoes/25.png" />
-          <img src="./product-detail-page-img/shoes/26.png" class="shoes-img" alt="운동화">
-          <p class="product-name">
-            벨로시틴 런업 Gx 8 알파플라이 3
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="shoes-card">
-          <img alt="운동화" src="./product-detail-page-img/shoes/27.png" />
-          <img src="./product-detail-page-img/shoes/28.png" class="shoes-img" alt="운동화">
-          <p class="product-name">
-            벨로시틴 런업 Tx 7 스트릭 플라이
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
+
+    <!-- 신발 -->
+    <section id="shoes" class="category-section" aria-labelledby="heading-shoes">
+      <h2 id="heading-shoes">신발</h2>
+      <div class="shoes-grid" role="list">
+        <article class="shoes-card" role="listitem">
+          <a href="product.html?id=shoe-17" aria-label="벨로시틴 런업 팬텀 Gx 17 러닝슈즈 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/shoes/17.png" alt="벨로시틴 런업 팬텀 Gx 17 러닝슈즈" loading="lazy" />
+            <img class="shoes-img" src="./product-detail-page-img/shoes/18.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 팬텀 Gx 17 러닝슈즈</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="shoes-card" role="listitem">
+          <a href="product.html?id=shoe-19" aria-label="벨로시틴 런업 TX 3 쿠셔닝 프로 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/shoes/19.png" alt="벨로시틴 런업 TX 3 쿠셔닝 프로" loading="lazy" />
+            <img class="shoes-img" src="./product-detail-page-img/shoes/20.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 TX 3 쿠셔닝 프로</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="shoes-card" role="listitem">
+          <a href="product.html?id=shoe-21" aria-label="벨로시틴 런업 루덴 아카데미 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/shoes/21.png" alt="벨로시틴 런업 루덴 아카데미" loading="lazy" />
+            <img class="shoes-img" src="./product-detail-page-img/shoes/22.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 루덴 아카데미</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="shoes-card" role="listitem">
+          <a href="product.html?id=shoe-23" aria-label="벨로시틴 런업 플라이 스트럭처 21 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/shoes/23.png" alt="벨로시틴 런업 플라이 스트럭처 21" loading="lazy" />
+            <img class="shoes-img" src="./product-detail-page-img/shoes/24.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 플라이 스트럭처 21</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="shoes-card" role="listitem">
+          <a href="product.html?id=shoe-25" aria-label="벨로시틴 런업 Gx 8 알파플라이 3 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/shoes/25.png" alt="벨로시틴 런업 Gx 8 알파플라이 3" loading="lazy" />
+            <img class="shoes-img" src="./product-detail-page-img/shoes/26.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 Gx 8 알파플라이 3</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="shoes-card" role="listitem">
+          <a href="product.html?id=shoe-27" aria-label="벨로시틴 런업 Tx 7 스트릭 플라이 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/shoes/27.png" alt="벨로시틴 런업 Tx 7 스트릭 플라이" loading="lazy" />
+            <img class="shoes-img" src="./product-detail-page-img/shoes/28.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 Tx 7 스트릭 플라이</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
       </div>
-      <button class="btn-more">
-        더 보기
-      </button>
+      <button class="btn-more" type="button" aria-label="신발 더 보기">더 보기</button>
     </section>
-    <section class="category-section">
-      <h2>
-        용품
-      </h2>
-      <div class="product-grid">
-        <!-- 상품 카드들 -->
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/sports-item/sports_item1.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/sports-item/sports_item1-2.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            런업 트레이닝 매트
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/sports-item/sports_item2.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/sports-item/sports_item2-2.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            런업 트레이닝 운동기구
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/sports-item/sports_item3.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/sports-item/sports_item3-2.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            런업 트레이닝 텀블러
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/sports-item/sports_item4.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/sports-item/sports_item4-2.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            런업 트레이닝 폼롤러
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/sports-item/sports_item5.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/sports-item/sports_item5-2.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            벨로시틴 런업 트레이닝 밴드
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="image-container">
-            <img src="./product-detail-page-img/sports-item/sports_item6-2.png" class="main-img" alt="기본 이미지" />
-            <img src="./product-detail-page-img/sports-item/sports_item6.png" class="hover-img" alt="호버 이미지" />
-          </div>
-          <p class="product-name">
-            런업 트레이닝 크로스백
-          </p>
-          <p class="product-price">
-            ₩49,000
-          </p>
-        </div>
+
+    <!-- 용품 -->
+    <section id="goods" class="category-section" aria-labelledby="heading-goods">
+      <h2 id="heading-goods">용품</h2>
+      <div class="product-grid" role="list">
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=mat-01" aria-label="런업 트레이닝 매트 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/sports-item/sports_item1.png" alt="런업 트레이닝 매트" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/sports-item/sports_item1-2.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">런업 트레이닝 매트</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=gear-01" aria-label="런업 트레이닝 운동기구 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/sports-item/sports_item2.png" alt="런업 트레이닝 운동기구" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/sports-item/sports_item2-2.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">런업 트레이닝 운동기구</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=tumbler-01" aria-label="런업 트레이닝 텀블러 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/sports-item/sports_item3.png" alt="런업 트레이닝 텀블러" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/sports-item/sports_item3-2.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">런업 트레이닝 텀블러</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=foamroller-01" aria-label="런업 트레이닝 폼롤러 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/sports-item/sports_item4.png" alt="런업 트레이닝 폼롤러" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/sports-item/sports_item4-2.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">런업 트레이닝 폼롤러</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=band-01" aria-label="벨로시틴 런업 트레이닝 밴드 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/sports-item/sports_item5.png" alt="벨로시틴 런업 트레이닝 밴드" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/sports-item/sports_item5-2.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">벨로시틴 런업 트레이닝 밴드</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
+
+        <article class="product-card" role="listitem">
+          <a class="image-container" href="product.html?id=crossbag-01" aria-label="런업 트레이닝 크로스백 상세 보기">
+            <img class="main-img" src="./product-detail-page-img/sports-item/sports_item6-2.png" alt="런업 트레이닝 크로스백" loading="lazy" />
+            <img class="hover-img" src="./product-detail-page-img/sports-item/sports_item6.png" alt="" aria-hidden="true" loading="lazy" />
+          </a>
+          <h3 class="product-name">런업 트레이닝 크로스백</h3>
+          <p class="product-price" aria-label="가격 49,000원">₩49,000</p>
+        </article>
       </div>
-      <button class="btn-more">
-        더 보기
-      </button>
+      <button class="btn-more" type="button" aria-label="용품 더 보기">더 보기</button>
     </section>
+
     <!-- 하단 배너 -->
     <div class="bottom-banner">
-      <img alt="Move in Style" src="./img/sjposter.png" />
+      <img src="./img/sjposter.png" alt="Move in Style 프로모션 배너" />
     </div>
   </main>
+
   <!-- 푸터 -->
   <footer class="footer">
     <div class="footer-info">
-      <p>
-        고객센터 : 0000-000-0000
-      </p>
-      <p>
-        주소지 : 서울시 어디구 어디로 123
-      </p>
+      <p>고객센터 : 0000-000-0000</p>
+      <p>주소지 : 서울시 어디구 어디로 123</p>
     </div>
-    <div class="social-icons">
-      <a href="#">
-        <img alt="" src="./img/footer_insta.png" />
-      </a>
-      <a href="#">
-        <img alt="" src="./img/footer_facebook.png" />
-      </a>
-      <a href="#">
-        <img alt="" src="./img/footer_youtube.png" />
-      </a>
-      <a href="#">
-        <img alt="" src="./img/footer_telle.png" />
-      </a>
+    <div class="social-icons" role="group" aria-label="소셜 링크">
+      <a href="#" aria-label="인스타그램"><img src="./img/footer_insta.png" alt="" /></a>
+      <a href="#" aria-label="페이스북"><img src="./img/footer_facebook.png" alt="" /></a>
+      <a href="#" aria-label="유튜브"><img src="./img/footer_youtube.png" alt="" /></a>
+      <a href="#" aria-label="텔레그램"><img src="./img/footer_telle.png" alt="" /></a>
     </div>
     <ul class="footer-links">
-      <li>
-        <a href="#">
-          이용약관
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          개인정보처리방침
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          청소년 보호정책
-        </a>
-      </li>
+      <li><a href="#">이용약관</a></li>
+      <li><a href="#">개인정보처리방침</a></li>
+      <li><a href="#">청소년 보호정책</a></li>
     </ul>
   </footer>
-  <!-- 하단 네비게이션바 -->
-  <nav class="bottom-nav">
-    <a href="search.html">
-      <i class="fa fa-search">
-      </i>
-      <span>
-      </span>
+
+  <!-- 하단 고정 내비 -->
+  <nav class="bottom-nav" aria-label="하단 빠른메뉴">
+    <a href="search.html" aria-label="검색">
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <span class="visually-hidden">검색</span>
     </a>
-    <a href="shopping.html">
-      <i class="fa fa-shopping-cart">
-      </i>
-      <span>
-      </span>
+    <a href="shopping.html" aria-label="장바구니">
+      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+      <span class="visually-hidden">장바구니</span>
     </a>
-    <a href="login.html">
-      <i class="fa fa-user">
-      </i>
-      <span>
-      </span>
+    <a href="login.html" aria-label="로그인">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <span class="visually-hidden">로그인</span>
     </a>
-    <button class="hamburger-toggle" id="hamburgerToggleMobile" type="button">
-      <span class="line">
-      </span>
-      <span class="line">
-      </span>
-      <span class="line">
-      </span>
+    <button class="hamburger-toggle" id="hamburgerToggleMobile" type="button"
+            aria-label="사이드 메뉴 열기" aria-controls="sidebar" aria-expanded="false">
+      <span class="line" aria-hidden="true"></span>
+      <span class="line" aria-hidden="true"></span>
+      <span class="line" aria-hidden="true"></span>
     </button>
   </nav>
+
   <!-- 사이드바 -->
-  <div class="sidebar-overlay" id="sidebarOverlay">
-  </div>
-  <aside class="sidebar" id="sidebar">
-    <ul class="sidebar-menu">
-      <li class="fade-item delay-1">
-        <a href="index.html">
-          홈
-        </a>
-      </li>
-      <li class="fade-item delay-3">
-        <a href="product-detail.html">
-          쇼핑하기
-        </a>
-      </li>
-      <li class="fade-item delay-4">
-        <a href="login.html">
-          로그인 / 회원가입
-        </a>
-      </li>
-    </ul>
+  <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+  <aside class="sidebar" id="sidebar" aria-labelledby="sidebar-title" aria-hidden="true">
+    <h2 id="sidebar-title" class="visually-hidden">사이드 메뉴</h2>
+    <nav aria-label="사이드바 메뉴">
+      <ul class="sidebar-menu">
+        <li class="fade-item delay-1"><a href="index.html">홈</a></li>
+        <li class="fade-item delay-3"><a href="product-detail.html">쇼핑하기</a></li>
+        <li class="fade-item delay-4"><a href="login.html">로그인 / 회원가입</a></li>
+      </ul>
+    </nav>
   </aside>
+
+  <!-- 스크립트: 상태/접근성 반영 (전역 text-decoration 제거 코드 삭제됨) -->
   <script>
-    // DOM 요소 불러오기
     const header = document.querySelector('.top-nav');
-    const nav = document.querySelector(".bottom-nav");
-    const hamburgerBtnDesktop = document.getElementById('hamburgerToggleDesktop');
-    const hamburgerBtnMobile = document.getElementById('hamburgerToggleMobile');
+    const nav = document.querySelector('.bottom-nav');
+    const btnDesktop = document.getElementById('hamburgerToggleDesktop');
+    const btnMobile  = document.getElementById('hamburgerToggleMobile');
     const sidebar = document.getElementById('sidebar');
-    const sidebarOverlay = document.getElementById('sidebarOverlay');
-    const videoElements = document.querySelectorAll('.hero-video');
+    const overlay = document.getElementById('sidebarOverlay');
 
-    // 줄 생기는 문제 해결용 - 전체 줄 제거
-    document.querySelectorAll('*').forEach(el => {
-      el.style.textDecoration = 'none';
-    });
+    function setMenuExpanded(expanded) {
+      [btnDesktop, btnMobile].forEach(b => b && b.setAttribute('aria-expanded', String(expanded)));
+      sidebar.setAttribute('aria-hidden', String(!expanded));
+      overlay.setAttribute('aria-hidden', String(!expanded));
+      sidebar.classList.toggle('active', expanded);
+      overlay.classList.toggle('active', expanded);
+      header.classList.toggle('scrolled', expanded || window.scrollY > 50);
+    }
 
-    // 공통: header 배경 및 글자 색 갱신
+    function toggleSidebar() {
+      const willOpen = !sidebar.classList.contains('active');
+      setMenuExpanded(willOpen);
+    }
+
     function updateHeaderState() {
-      const isSidebarOpen = sidebar.classList.contains('active');
       const isScrolled = window.scrollY > 50;
-
-      if (isScrolled || isSidebarOpen) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+      if (!sidebar.classList.contains('active')) {
+        header.classList.toggle('scrolled', isScrolled);
       }
-
-      // 하단 고정 메뉴 (모바일)
-      if (nav) {
-        if (window.scrollY > 10) {
-          nav.classList.add("scrolled");
-        } else {
-          nav.classList.remove("scrolled");
-        }
-      }
-
-      // 햄버거 버튼 색 (header.scrolled 클래스 활용)
-      //m공통 햄버거 색상 제어
-      const isDesktop = window.innerWidth >= 768;
-      const isMobile = window.innerWidth < 768;
-
-      // 데스크탑: header 스크롤 여부로 판단
-      if (isDesktop) {
-        const desktopScrolled = header.classList.contains('scrolled');
-        document.querySelectorAll('#hamburgerToggleDesktop .line').forEach(line => {
-          line.style.backgroundColor = desktopScrolled ? 'black' : 'white';
-        });
-      }
-
-    }
-    // 모바일 하단 네비게이션 상태에 따라 햄버거 메뉴 색상 조정
-    if (window.innerWidth < 768) {
-      const isNavScrolled = nav.classList.contains("scrolled");
-
-      document.querySelectorAll('#hamburgerToggleMobile .line').forEach(line => {
-        line.style.backgroundColor = isNavScrolled ? 'black' : 'white';
-      });
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 10);
     }
 
-
-    // 스크롤 이벤트 처리
+    btnDesktop && btnDesktop.addEventListener('click', toggleSidebar);
+    btnMobile  && btnMobile.addEventListener('click', toggleSidebar);
+    overlay.addEventListener('click', () => setMenuExpanded(false));
     window.addEventListener('scroll', updateHeaderState);
-
-    // 햄버거 버튼으로 사이드바 토글하는 함수
-    function toggleSidebar(btn) {
-      btn.classList.toggle('active');
-      sidebar.classList.toggle('active');
-      sidebarOverlay.classList.toggle('active');
-      updateHeaderState();
-      videoToggle.style.display = sidebar.classList.contains('active') ? 'none' : 'block';
-
-    }
-
-    //  데스크탑 햄버거 버튼 클릭 시
-    if (hamburgerBtnDesktop) {
-      hamburgerBtnDesktop.addEventListener('click', () => toggleSidebar(hamburgerBtnDesktop));
-    }
-
-    //  모바일 햄버거 버튼 클릭 시
-    if (hamburgerBtnMobile) {
-      hamburgerBtnMobile.addEventListener('click', () => toggleSidebar(hamburgerBtnMobile));
-    }
-
-    //  오버레이 클릭 시 닫기
-    sidebarOverlay.addEventListener('click', () => {
-      hamburgerBtnDesktop?.classList.remove('active');
-      hamburgerBtnMobile?.classList.remove('active');
-      sidebar.classList.remove('active');
-      sidebarOverlay.classList.remove('active');
-      updateHeaderState();
-      videoToggle.style.display = 'block';
-      videoToggle.style.zIndex = '10001';
-    });
+    updateHeaderState();
   </script>
 </body>
-
 </html>
