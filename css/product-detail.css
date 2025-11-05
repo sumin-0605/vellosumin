@@ -1,635 +1,349 @@
-/* 기본 글꼴 및 여백 */
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* =============== Base / Reset =============== */
+html { scroll-behavior: smooth; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Pretendard", sans-serif;
-  background-color: #fff;
-}
-
-.product-detail {
-  padding: 1rem;
-}
-
-/* 상단 고정 네비게이션 */
-.top-nav {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background-color: white;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.nav-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.8rem 1rem;
-}
-
-.logo {
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-}
-
-.nav-icons {
-  display: flex;
-  gap: 1rem;
-  font-size: 1rem;
-  color: #333;
-}
-
-/* 하단 카테고리 메뉴 */
-.nav-bottom {
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  background-color: #fff;
-  padding: 0.5rem 0;
-  overflow-x: auto;
-}
-
-.nav-menu {
-  display: flex;
-  justify-content: flex-start;
-  gap: 1.5rem;
-  list-style: none;
-  padding: 0 1rem;
-  margin: 0;
-  white-space: nowrap;
-  font-size: 0.9rem;
-}
-
-.nav-menu li a {
-  text-decoration: none;
+  font-family: "Pretendard", system-ui, -apple-system, "Noto Sans KR", sans-serif;
+  background: #fff;
   color: #111;
-  font-weight: 500;
+  line-height: 1.6;
 }
 
-/* 배너 */
+/* 접근성 유틸 */
+.skip-link {
+  position: absolute; left: -9999px; top: auto;
+  background: #111; color: #fff;
+  padding: .5rem .75rem; border-radius: .5rem;
+}
+.skip-link:focus { left: 1rem; top: 1rem; z-index: 10000; }
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* 포커스 링 */
+:focus-visible { outline: 2px solid #2b6ff9; outline-offset: 2px; }
+
+/* 페이지 래퍼 */
+.product-detail { padding: 1rem; }
+
+/* =============== Header / Navigation =============== */
+.top-nav {
+  position: sticky; top: 0; width: 100%;
+  background: #fff; z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+.nav-top {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .8rem 1rem;
+}
+.logo {
+  font-size: 1.4rem; font-weight: 800; letter-spacing: .5px;
+  color: #111; text-decoration: none;
+}
+.nav-icons {
+  display: flex; gap: 1rem; font-size: 1.1rem; align-items: center;
+}
+.nav-icons a { color: #111; text-decoration: none; }
+.nav-icons a:hover i { opacity: .7; }
+
+/* 하단 카테고리 바 */
+.nav-bottom {
+  border-top: 1px solid #eee; border-bottom: 1px solid #eee;
+  background: #fff; padding: .5rem 0; overflow-x: auto;
+}
+.nav-menu {
+  display: flex; gap: 1.5rem; list-style: none;
+  padding: 0 1rem; margin: 0; white-space: nowrap;
+}
+.nav-menu a {
+  position: relative; text-decoration: none;
+  color: #111; font-weight: 600;
+}
+.nav-menu a::after {
+  content: ""; position: absolute; left: 0; bottom: -2px;
+  width: 0%; height: 2px; background: #111; transition: width .25s ease;
+}
+.nav-menu a:hover::after { width: 100%; }
+
+/* =============== Hero Banner =============== */
 .hero-banner {
-  display: flex;
-  justify-content: space-between;
-  margin: 1.5rem 0;
-  gap: 0;
+  display: flex; justify-content: space-between;
+  gap: 0; margin: 1.5rem 0;
 }
-
 .hero-banner img {
-  width: 33.3333%;
-  border-radius: 0;
-  object-fit: cover;
+  width: 33.3333%; aspect-ratio: 3/4;
+  object-fit: cover; border-radius: 0;
 }
 
-/* 카테고리 타이틀 */
-.category-section {
-  margin-bottom: 2rem;
-}
+/* =============== Category Section =============== */
+.category-section { margin-bottom: 2rem; }
 .category-section h2 {
-  margin: 0.5rem 0;
-  font-size: 1.2rem;
-  font-weight: 600;
+  margin: .5rem 0; font-size: 1.25rem; font-weight: 700;
   text-transform: capitalize;
 }
 
-/* 상품 카드 그리드 */
+/* =============== Product Grid / Card =============== */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
-
 .product-card {
-  background-color: #fff;
-  padding: 0.7rem;
+  background: #fff;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-  transition: transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,.03);
+  padding: .7rem;
+  transition: transform .2s ease;
 }
+.product-card:hover { transform: translateY(-2px); }
 
-.product-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 6px;
-  transition: opacity 0.3s ease;
-}
-
-.product-card {
-  position: relative;
-  overflow: hidden;
-  background-color: #fff;
-  padding: 0.7rem;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-}
-
-.product-card .main-img,
-.product-card .hover-img {
-  width: 100%;
-  height: 240px; /* ❗모든 이미지에 동일하게 맞춰줌 */
-  object-fit: cover;
-  border-radius: 6px;
-  display: block;
-  transition: opacity 0.3s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.product-card .hover-img {
-  opacity: 0;
-  z-index: 2;
-}
-
-.product-card .main-img {
-  z-index: 1;
-}
-
-.product-card:hover .hover-img {
-  opacity: 1;
-}
-
-.product-card:hover .main-img {
-  opacity: 0;
-}
-
+/* ✅ 이미지 영역: 최신 통합 버전 */
 .image-container {
   position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;  /* 모바일 기본 비율 */
   overflow: hidden;
-  width: 100%;
+  border-radius: 10px;
+  background: #f8f8f8;
 }
-
-.image-container img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: opacity 0.4s ease;
+.image-container > img {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  transition: opacity .35s ease;
+}
+/* 호버 전환 */
+.product-card .main-img { opacity: 1; z-index: 1; }
+.product-card .hover-img { opacity: 0; z-index: 2; }
+.product-card:hover .hover-img { opacity: 1; }
+.product-card:hover .main-img { opacity: 0; }
+
+/* 옵션 모드 */
+.product-card.contain-mode .image-container > img {
+  object-fit: contain;
+  background: #fff;
+  padding: 6%;
+}
+.product-card.top-focus .image-container > img {
+  object-position: center top;
 }
 
-.image-container .main-img {
-  position: relative;
-  z-index: 1;
+/* 텍스트 */
+.product-name {
+  font-size: .98rem; font-weight: 700; margin-top: .6rem;
+}
+.product-price {
+  font-size: .88rem; color: #777; margin-top: .15rem;
 }
 
-.image-container .hover-img {
-  opacity: 0;
-  z-index: 2;
-}
-
-.image-container:hover .hover-img {
-  opacity: 1;
-}
-
-
-
-
-
-.shoes-grid{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+/* =============== Shoes Grid =============== */
+.shoes-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
-
-.shoes-card {
-  position: relative;
-  overflow: hidden;
-}
-
+.shoes-card { position: relative; overflow: hidden; }
+.shoes-card::before { content: ""; display: block; padding-top: 66.6667%; }
 .shoes-card img {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
-  transition: opacity 0.3s ease;
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center bottom;
+  border-radius: 10px; transition: opacity .3s ease;
 }
+.shoes-card .shoes-img { opacity: 0; }
+.shoes-card:hover .shoes-img { opacity: 1; }
+.shoes-card:hover .main-img { opacity: 0; }
 
-.shoes-card .main-img {
-  position: relative;
-  z-index: 1;
-  transition: opacity 0.3s ease;
-}
-
-.shoes-img{ object-position: center bottom;}
-
-.shoes-card .shoes-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 10px;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 2;
-  transition: opacity 0.3s ease;
-}
-
-.shoes-card:hover .shoes-img {
-  opacity: 1;
-}
-
-.shoes-card:hover .main-img {
-  opacity: 0;
-}
-
-
-.product-name {
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-top: 0.5rem;
-}
-
-.product-price {
-  font-size: 0.85rem;
-  color: #777;
-  margin-top: 0.2rem;
-}
-
+/* =============== Buttons =============== */
 .btn-more {
   display: block;
   margin: 1.2rem auto 2rem;
-  padding: 0.4rem 1rem;
-  background-color: #eee;
+  padding: .5rem 1.1rem;
+  background: #eee;
   border: none;
-  border-radius: 5px;
-  font-size: 0.9rem;
+  border-radius: 6px;
+  font-size: .92rem;
   cursor: pointer;
 }
+.btn-more:hover { background: #e4e4e4; }
 
+/* =============== Bottom Banner =============== */
 .bottom-banner img {
-  width: 100%;
-  border-radius: 10px;
-  margin-top: 3rem;
+  width: 100%; border-radius: 10px; margin-top: 3rem; display: block;
 }
 
-/* 푸터 */
+/* =============== Footer =============== */
 .footer {
-  background-color: #111;
-  color: white;
-  padding: 2rem 1rem;
-  text-align: center;
-  margin-bottom: 2rem;
+  background: #111; color: #fff;
+  padding: 2rem 1rem; text-align: center; margin-bottom: 2rem;
 }
+.footer a { color: #fff; text-decoration: none; }
 .social-icons {
-  margin-top: 1rem;
+  margin-top: 1rem; display: flex; gap: .75rem;
+  align-items: center; justify-content: center;
 }
-.footer a {
-  color: white;
-  text-decoration: none;
-  margin: 0 0.5rem;
-}
-
 .footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  list-style: none;
-  margin-top: 1rem;
-  padding: 0;
+  display: flex; flex-direction: column;
+  gap: .5rem; list-style: none;
+  margin-top: 1rem; padding: 0;
 }
 
-/* <!--사이드바 --> */
-
+/* =============== Sidebar / Overlay =============== */
 .sidebar {
-  position: fixed;
-  top: 0;
-
-  width: 100vw;
-  height: calc(100vh - 60px);
-  padding-bottom: 60px;
-  background-color: rgba(255, 255, 255, 0.95);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
+  position: fixed; top: 0; left: 0;
+  width: 100vw; height: calc(100vh - 60px);
+  background: rgba(255,255,255,.95);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity .3s ease;
   z-index: 9998;
 }
-
-.sidebar.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.sidebar-logo {
-  width: 120px;
-  margin-bottom: 2rem;
-}
-
-.sidebar-menu {
-  list-style: none;
-  text-align: center;
-  padding: 0;
-}
-
-.sidebar-menu li {
-  margin: 1rem 0;
-}
-
+.sidebar.active { opacity: 1; visibility: visible; }
+.sidebar-menu { list-style: none; text-align: center; padding: 0; }
+.sidebar-menu li { margin: 1rem 0; }
 .sidebar-menu a {
-  text-decoration: none;
-  font-size: 1.2rem;
-  color: #111;
-  font-weight: bold;
+  text-decoration: none; font-size: 1.2rem;
+  color: #111; font-weight: 800;
 }
-
-.sidebar-toggle {
-  position: fixed;
-  bottom: 70px;
-  right: 20px;
-  background: black;
-  color: white;
-
-  padding: 0.7rem 1rem;
-  z-index: 9999;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border: none;
-}
-
 .sidebar-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.5);
+  opacity: 0; visibility: hidden;
+  transition: opacity .3s ease;
   z-index: 9997;
 }
+.sidebar-overlay.active { opacity: 1; visibility: visible; }
 
-.sidebar-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.bottom-nav.scrolled .hamburger-toggle .line {
-  background-color: black; /* 스크롤시: 검정색 */
-}
-
-/* 사이드바 열였을 때 글자 애니메이션 */
-/* 기본 상태: 투명 + 아래로 이동 */
+/* 사이드바 등장 애니메이션 */
 .fade-item {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .4s ease, transform .4s ease;
 }
-
-/* 사이드바가 active일 때 순차적으로 등장 */
 .sidebar.active .fade-item {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; transform: translateY(0);
 }
+.delay-1 { transition-delay: .2s; }
+.delay-2 { transition-delay: .4s; }
+.delay-3 { transition-delay: .6s; }
+.delay-4 { transition-delay: .8s; }
 
-/* 딜레이를 다르게 줘서 계단처럼 보여주기 */
-.delay-1 {
-  transition-delay: 0.2s;
-}
-.delay-2 {
-  transition-delay: 0.4s;
-}
-.delay-3 {
-  transition-delay: 0.6s;
-}
-.delay-4 {
-  transition-delay: 0.8s;
-}
-
-/* 햄버거 X 모양으로 바뀌는거 */
+/* =============== Hamburger Button =============== */
 .hamburger-toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  width: 40px;
-  height: 40px;
-  background: none;
-  cursor: pointer;
-  z-index: 10000;
-  outline: none;
-  border: none;
-  box-shadow: none;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  gap: 5px; width: 40px; height: 40px;
+  background: none; border: none; cursor: pointer;
 }
-
 .hamburger-toggle .line {
-  width: 20px;
-  height: 2px;
-  background-color: white;
-  transition: all 0.3s ease;
+  width: 20px; height: 2px;
+  background: #111; transition: all .3s ease;
 }
+.hamburger-toggle.active .line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger-toggle.active .line:nth-child(2) { opacity: 0; }
+.hamburger-toggle.active .line:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-.hamburger-toggle.active .line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.hamburger-toggle.active .line:nth-child(2) {
-  opacity: 0;
-}
-.hamburger-toggle.active .line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
+/* =============== Bottom Nav (Mobile) =============== */
 .bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: white;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 60px;
-  border-top: 1px solid #ddd;
-  z-index: 9999;
+  position: fixed; bottom: 0; left: 0;
+  width: 100%; height: 60px;
+  background: #fff;
+  display: flex; justify-content: space-around; align-items: center;
+  border-top: 1px solid #ddd; z-index: 9999;
 }
-.bottom-nav a,
-.bottom-nav button {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  color: #111;
+.bottom-nav a, .bottom-nav button {
+  background: none; border: none; font-size: 1.2rem;
+  color: #111; text-decoration: none;
 }
+.bottom-nav.scrolled .hamburger-toggle .line { background: #111; }
 
-.hamburger-toggle .line {
-  background-color: black !important;
-}
-
-.nav-icons {
-  display: none;
-}
-
-/* 카테고리 마우스오버 밑줄 효과 */
-.nav-menu li a {
-  position: relative;
-  text-decoration: none;
-  color: #111;
-  font-weight: 500;
-  display: inline-block;
-}
-
-.nav-menu li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0%;
-  height: 2px;
-  background-color: black;
-  transition: width 0.3s ease;
-}
-
-.nav-menu li a:hover::after {
-  width: 100%;
-}
-
-/* 미디어쿼리 데탑 */
+/* =============== Desktop Media Query =============== */
 @media (min-width: 768px) {
-  .product-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .nav-top {
-    padding: 1.2rem 2rem;
-  }
-
-  .logo {
-    font-size: 1.5rem;
-  }
-
-  .nav-menu {
-    justify-content: center;
-    overflow-x: visible;
-  }
-  .bottom-nav {
-    display: none;
-  }
-
-  .nav-icons {
-    display: flex;
-  }
-
-  #hamburgerToggleMobile {
-    display: none;
-  }
-
-  #hamburgerToggleDesktop {
-    display: flex; 
-  }
-  .nav-icons {
-    display: flex;
-    gap: 1.2rem; 
-    align-items: center; 
-    font-size: 1.2rem;
-  }
-
-  .nav-icons a i {
-    color: #111; 
-  }
-  .nav-icons a:hover i {
-    color: #555; 
-  }
-  .nav-menu {
-    /* 카테고리 왼쪽정렬 */
-    justify-content: flex-start;
-    margin-left: 2rem;
-  }
+  .product-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; padding: 0 1rem; }
+  .nav-top { padding: 1.2rem 2rem; }
+  .logo { font-size: 1.6rem; }
+  .nav-menu { justify-content: flex-start; margin-left: 2rem; overflow-x: visible; }
+  .bottom-nav { display: none; }
+  .nav-icons { gap: 1.2rem; font-size: 1.2rem; }
   .sidebar {
-    position: fixed;
-    top: 0;
-    right: 0; 
-    width: 50vw; 
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.95);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    right: 0; left: auto; width: 50vw; height: 100vh;
     transform: translateX(100%);
-    z-index: 9998;
+    transition: opacity .3s ease, transform .3s ease;
   }
-
-  .sidebar.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0%);
-  }
-
-  .sidebar-overlay {
-   
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-    z-index: 9997;
-  }
-
-  .top-nav {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background-color: white;
-    z-index: 10000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
-
-  .product-grid {
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 1.5rem; 
-    padding: 0 1rem; 
-
-  }
-
-  .product-card {
-  background-color: #fff;
-  padding: 0.5rem; 
-  border-radius: 10px;
-  width: 14rem;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-  transition: transform 0.2s ease;
+  .sidebar.active { transform: translateX(0); }
+  .sidebar-overlay { background: rgba(0,0,0,.3); }
+  .hero-banner img { aspect-ratio: 4/5; }
+  .shoes-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: .1rem; }
+  .product-card { padding: .5rem; }
+  .image-container { aspect-ratio: 3 / 4; }
 }
 
-.product-card img {
-  width: 100%;
-  height: 15rem;
-  object-fit: cover;
-  border-radius: 6px;
+/* =============== Minor helpers =============== */
+a { -webkit-tap-highlight-color: transparent; }
+img { max-width: 100%; height: auto; }
+
+
+/* --- 이미지 안 보임/높이 0 응급패치: 이미지 영역 높이 보장 --- */
+.image-container{
+  display:block;              /* 혹시라도 display가 잘못됐을 때 대비 */
+  position:relative;
+  width:100%;
+  aspect-ratio: 4 / 5;        /* 기본 비율 */
+  min-height: clamp(220px, 32vw, 360px);  /* ✅ 높이 하한선 보장 */
+  overflow:hidden;
+  border-radius:10px;
+  background:#f8f8f8;
 }
 
- .shoes-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding: 0.1rem;
+@media (min-width:768px){
+  .image-container{
+    aspect-ratio: 3 / 4;      /* 데스크탑 비율 */
+    min-height: clamp(300px, 28vw, 440px); /* ✅ 데스크탑 높이 보장 */
+  }
+}
+
+/* 절대배치된 이미지가 컨테이너를 꽉 채우도록 */
+.image-container > img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit: cover; object-position:center;
+  transition:opacity .35s ease;
+  border-radius:10px;
+}
+
+/* 호버 전환 안전하게 */
+.product-card .main-img{ opacity:1 !important; z-index:1; }
+.product-card .hover-img{ opacity:0; z-index:2; }
+.product-card:hover .hover-img{ opacity:1; }
+.product-card:hover .main-img{ opacity:0; }
+
+
+/* ================== 📱 Mobile Fix (붙여넣기) ================== */
+/* 아주 작은 기기(iPhone SE~) */
+@media (max-width: 390px) {
+  /* 상품 카드 이미지: 거의 정사각에 가깝게, 높이 과다 방지 */
+  .image-container{
+    aspect-ratio: 1 / 1.1;                 /* 4:5 → 더 통통하게 */
+    min-height: clamp(160px, 44vw, 220px); /* 높이 하한을 더 낮춤 */
   }
 
-  .shoes-card img,
-  .shoes-card .hover-img {
-    height: 240px !important;
-    object-fit: cover;
-    object-position: center bottom;
+  /* 신발 카드: 너무 길어보이면 정사각 느낌 */
+  .shoes-card::before{ padding-top: 100%; } /* 1:1 */
+  .shoes-card img{ object-position: center; }
+}
+
+/* 일반 모바일(≤480px) 공통 다듬기 */
+@media (max-width: 480px) {
+  .product-grid{ gap: .8rem; }
+  .product-name{ font-size: .96rem; }
+  .product-price{ font-size: .84rem; }
+
+  /* 히어로 배너: 세로로 과하게 길어보이는 거 방지 */
+  .hero-banner img{
+    aspect-ratio: 16 / 9;   /* 모바일은 낮게, 시원하게 */
+    object-position: center;
   }
 }
